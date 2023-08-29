@@ -117,6 +117,13 @@ header h1 {
   padding: 10px 15px;
   margin: 0 5px 20px;
   font-weight: 700;
+  cursor: pointer;
+}
+.edit-mode-on{
+  color: #ccc;
+}
+.edit-mode-off{
+  color: #000;
 }
 
 @media (max-width: 500px) {
