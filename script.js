@@ -76,9 +76,9 @@ function addItemToStorage(item) {
 }
 
 function getItemsFromStorage() {
-  let itemsFromStorage = [];
+  let itemsFromStorage;
   if (localStorage.getItem("items") === null) {
-    let itemsFromStorage = [];
+    itemsFromStorage = [];
   } else {
     itemsFromStorage = JSON.parse(localStorage.getItem("items"));
   }
@@ -137,11 +137,12 @@ function setItemToEdit(item) {
 
 function clearItems() {
   if (window.confirm("Are you sure?")) {
-    itemList.remove();
+    while (itemList.firstChild) {
+      itemList.removeChild(itemList.firstChild);
+    }
 
     //remove item from local storage
-    const itemsFromStorage = [];
-    localStorage.setItem("items", JSON.stringify(itemsFromStorage));
+    localStorage.removeItem("items");
     checkUI();
   }
 }
@@ -160,6 +161,7 @@ function filterItem(e) {
 
 function checkUI() {
   const items = itemList.querySelectorAll("li");
+  console.log(items);
   if (items.length === 0) {
     clearBtn.style.display = "none";
     itemFilter.style.display = "none";
