@@ -76,7 +76,7 @@ function addItemToStorage(item) {
 }
 
 function getItemsFromStorage() {
-  let itemsFromStorage;
+  let itemsFromStorage = [];
   if (localStorage.getItem("items") === null) {
     let itemsFromStorage = [];
   } else {
